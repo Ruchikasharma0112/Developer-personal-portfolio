@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUCHIKA - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eef2f3;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: #2C3E50;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .left {
+            font-size: 1.8rem;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        main {
+            margin-top: 80px;
+            padding: 50px 10%;
+        }
+
+        hr {
+            border: 0;
+            background-color: #f39c12;
+            height: 2px;
+            margin: 40px 0;
+        }
+    
+        /* Optional styling */
+        #element {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #3498db;
+            transition: opacity 0.5s ease-in-out;
+        }
+    
+        /* Home Section */
+        .first {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .first .leftsection {
+            max-width: 500px;
+            font-size: 2.2rem;
+            color: #2C3E50;
+            text-align: center;
+        }
+
+        .first .rightsection img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .first .cta {
+            display: inline-block;
+            background: #f39c12;
+            padding: 15px 40px;
+            color: white;
+            text-transform: uppercase;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .first .cta:hover {
+            background: #e67e22;
+            transform: scale(1.05);
+        }
+
+        .cta.download {
+            background: #2980b9;
+        }
+
+        .cta.download:hover {
+            background: #3498db;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #6dd5fa;
+            padding: 80px 10%;
+            text-align: center;
+            color: #0f0303;
+            position: relative;
+        }
+
+        #about h2 {
+            font-size: 3rem;
+            color: #2C3E50;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: #ecf0f1;
+            text-align: center;
+            padding: 80px 10%;
+        }
+
+        #skills h2 {
+            font-size: 3rem;
+            color: #2C3E50;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        #skills p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            width: 30%;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .skill h3 {
+            font-size: 1.5rem;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            height: 10px;
+        }
+
+        .progress {
+            background-color: #f39c12;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .skills-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .skill {
+                width: 100%;
+            }
+        }
+
+        /* Services Section */
+        #services {
+            background-color: #ecf0f1;
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        #services h2 {
+            font-size: 3rem;
+            color: #2C3E50;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .service-box {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-box div {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-box div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-box h3 {
+            color: #2C3E50;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .service-box p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+    /* Projects Section */
+#projects {
+    padding: 80px 10%;
+    background: linear-gradient(120deg, #2980b9, #6dd5fa);
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 3rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.project-box {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Ensures equal size for each project box */
+    display: flex;
+    flex-direction: column; /* Aligns the image and content vertically */
+    justify-content: flex-start; /* Ensures the content starts from the top */
+    gap: 15px; /* Reduced space between image and content */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+    min-height: 350px; /* Set a minimum height to keep the boxes consistent */
+}
+
+.project-box img {
+    width: 100%;
+    height: auto;
+    max-width: 120px; /* Controls the max image width */
+    border-radius: 8px;
+    object-fit: cover; /* Ensures the image does not stretch/distort */
+    margin-bottom: 10px; /* Reduced space between image and content */
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content */
+    text-align: center; /* Ensures text is centered */
+}
+
+.project-details h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.project-details p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.view-link {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-link:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slight zoom effect for the button */
+}
+
+.view-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus outline for accessibility */
+}
+
+.project-box:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Adds a stronger shadow on hover */
+}
+
+@media (max-width: 768px) {
+    .project-box {
+        width: 100%; /* Ensures project boxes are stacked on mobile */
+    }
+    .project-box img {
+        max-width: 80%; /* Makes image slightly smaller on smaller screens */
+        margin-bottom: 15px;
+    }
+}
+
+
+        /* Footer Styles */
+        footer {
+            background-color: #2C3E50;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #f39c12;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .first {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .first .leftsection,
+            .first .rightsection {
+                width: 100%;
+            }
+
+            .service-box {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .service-box div {
+                width: 100%;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1.5rem 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="left">Ruchika's Portfolio</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="first">
+            <div class="leftsection">
+                <h1>Hi, I'm <span style="color: #f39c12;">Ruchika</span></h1>
+                <p>I'm a passionate <span id="element"></span></p>
+                <a href="#contact" class="cta">Hire Me</a>
+                <a href="https://github.com/Ruchikasharma0112/resume" download="RuchiResume.pdf" class="cta download">Download My Resume</a>
+
+            </div>
+            <div class="rightsection">
+                <img src="wd.jpg" alt="Developer Image">
+            </div>
+        </section>
+        <hr>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p><b>I am a passionate web developer with expertise in frontend and backend technologies. I enjoy creating
+                innovative, user-friendly websites that provide the best experiences for users. I have experience with
+                HTML, CSS, JavaScript, and various frameworks.</b></p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>My Skills</h2>
+            <p>Here are some of the skills I've mastered over time:</p>
+
+            <div class="skills-container">
+                <div class="skill">
+                    <h3>HTML</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>CSS</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>JavaScript</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>PHP</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <h3>Python</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Services</h2>
+            <div class="service-box">
+                <div>
+                    <h3>Web Development</h3>
+                    <p>I create fast, responsive, and interactive websites tailored to your business needs.</p>
+                </div>
+                <div>
+                    <h3>UI/UX Design</h3>
+                    <p>I design clean, modern user interfaces to make websites more engaging and user-friendly.</p>
+                </div>
+                <div>
+                    <h3>SEO Optimization</h3>
+                    <p>Optimize your website for search engines to increase visibility and drive traffic.</p>
+                </div>
+            </div>
+        </section>
+
+         <!-- Projects Section -->
+         <section id="projects">
+            <h2>My Projects</h2>
+            <div class="projects-container">
+                <div class="project-box">
+                    <img src="Screenshot (78).png" alt="Food Ordering Website">
+                    <div class="project-details">
+                        <h3>Food Ordering Website</h3>
+                        <p>Made a food ordering website using HTML, CSS, and JavaScript for the front end. The backend is built with PHP and MySQL for database management. Users can browse menus, add items to their cart, and place orders online.</p>
+                        <a href="https://github.com/Ruchikasharma0112/food-ordering-website" target="_blank" class="view-link">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="project-box">
+                    <img src="Screenshot (136).png" alt="Coffee Shop">
+                    <div class="project-details">
+                        <h3>Coffee Shop</h3>
+                        <p>The website is designed with a user-friendly interface, making it easy for visitors to explore different coffee varieties, learn brewing techniques, and enjoy a customizable coffee experience.</p>
+                        <a href="https://github.com/Ruchikasharma0112/coffee-website" target="_blank" class="view-link">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="project-box">
+                    <img src="Screenshot (138).png" alt="Portfolio">
+                    <div class="project-details">
+                        <h3>Portfolio</h3>
+                        <p>A personal portfolio website that highlights my skills, showcases my projects, and provides easy access to my contact information. It’s a space to explore my work and connect for potential collaborations or opportunities.</p>
+                        <a href="https://github.com/Ruchikasharma0112/Developer-personal-portfolio" target="_blank" class="view-link">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Contact Section -->
+                <section id="contact" style="padding: 80px 10%; text-align: center;">
+                    <h2><b>Contact Me</b></h2>
+                    <p>If you'd like to discuss a project or simply want to say hello, feel free to get in touch!</p>
+                    <a href="mailto:sharmaruchika2002@gmail.com" class="cta">Send an Email</a>
+    </main>
+  
+    <!-- Footer -->
+    <footer>
+        <p>Ruchika's Portfolio &copy; 2025</p>
+        <p>Follow me on:
+            <a href="https://www.linkedin.com/in/ruchika-sharma-5614472b1">LinkedIn</a>
+            <a href="https://github.com/Ruchikasharma0112">GitHub</a>
+        </p>
+    </footer>
+
+    <script>
+        const passions = ['web developer', 'designer', 'coder'];
+        let i = 0;
+
+        function changePassion() {
+            document.getElementById('element').textContent = passions[i];
+            i = (i + 1) % passions.length;  // Loop back to the first item
+        }
+
+        // Start changing passions every 2 seconds
+        setInterval(changePassion, 2000);
+
+        // Initialize the first passion immediately
+        changePassion();
+    </script>
+</body>
+
+</html>
